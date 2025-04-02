@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start"></main>
-    </div>
-  )
+  return <main>누구나 볼 수 있는 페이지</main>
 }
