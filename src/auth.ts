@@ -28,5 +28,14 @@ export const {
   ],
   session: {
     strategy: 'jwt'
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user }
+    },
+    async session({ session, token }) {
+      // session.user = token 임시로
+      return session
+    }
   }
 })
