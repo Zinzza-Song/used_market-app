@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 
@@ -14,7 +15,7 @@ export const {
         username: { label: 'Username', type: 'text', placeholder: 'Username' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize({ credentials, req }) {
+      async authorize(credentials, req) {
         const user = { id: '1', name: 'test', email: 'test@test.com' }
 
         if (user) {
