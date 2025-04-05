@@ -1,14 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import NextAuth from 'next-auth'
+import NextAuth, { NextAuthConfig } from 'next-auth'
+import { AdapterUser } from 'next-auth/adapters'
 import Credentials from 'next-auth/providers/credentials'
 
-export const {
-  handlers,
-  signIn,
-  signOut,
-  auth,
-  unstable_update: update // Beta!
-} = NextAuth({
+export const config = {
   providers: [
     Credentials({
       credentials: {
@@ -16,7 +11,12 @@ export const {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials, req) {
-        const user = { id: '1', name: 'test', email: 'test@test.com' }
+        const user = {
+          id: '1',
+          name: 'test',
+          email: 'test@test.com',
+          role: 'Admin'
+        }
 
         if (user) {
           return user
@@ -29,13 +29,25 @@ export const {
   session: {
     strategy: 'jwt'
   },
+  secret: process.env.JWT_SECRET,
+  jwt: {
+    maxAge: 30 * 24 * 60 * 60 // 30일
+  },
   callbacks: {
     async jwt({ token, user }) {
       return { ...token, ...user }
     },
     async session({ session, token }) {
-      // session.user = token 임시로
+      session.user = token as unknown as AdapterUser
       return session
     }
   }
-})
+} satisfies NextAuthConfig
+
+export const {
+  handlers,
+  signIn,
+  signOut,
+  auth,
+  unstable_update: update // Beta!
+} = NextAuth(config)

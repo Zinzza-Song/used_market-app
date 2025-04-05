@@ -9,14 +9,18 @@ const NavItem = ({ mobile }: { mobile?: boolean }) => {
   return (
     <ul
       className={`text-md flex w-full items-center justify-center gap-4 ${mobile && 'h-full flex-col'}`}>
-      {/* Admin menu */}
-      <li className="border-b-4 py-2 text-center">
-        <Link
-          className="cursor-pointer"
-          href="/admin">
-          Admin
-        </Link>
-      </li>
+      {
+        /* Admin menu */
+        session?.user?.role === 'Admin' ? (
+          <li className="border-b-4 py-2 text-center">
+            <Link
+              className="cursor-pointer"
+              href="/admin">
+              Admin
+            </Link>
+          </li>
+        ) : null
+      }
 
       {/* User menu */}
       <li className="border-b-4 py-2 text-center">
