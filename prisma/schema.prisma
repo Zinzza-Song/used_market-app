@@ -57,7 +57,9 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
-  role       UserType  @default(User)
+  createdAt      DateTime  @default(dbgenerated("NOW()")) @db.Timestamp()
+  updatedAt      DateTime  @updatedAt                     @db.Timestamp()
+  role           UserType  @default(User)
  
   @@map("users")
 }
