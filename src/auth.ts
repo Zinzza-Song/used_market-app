@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import NextAuth, { NextAuthConfig } from 'next-auth'
 import { AdapterUser } from 'next-auth/adapters'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import { prisma } from '@/libs/prismadb'
 import Credentials from 'next-auth/providers/credentials'
 
 export const config = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
       credentials: {
