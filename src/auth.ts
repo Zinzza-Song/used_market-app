@@ -33,6 +33,9 @@ export const config = {
   jwt: {
     maxAge: 30 * 24 * 60 * 60 // 30일
   },
+  pages: {
+    signIn: '/auth/login'
+  },
   callbacks: {
     async jwt({ token, user }) {
       return { ...token, ...user }
