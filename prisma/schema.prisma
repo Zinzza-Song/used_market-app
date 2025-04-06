@@ -57,7 +57,7 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
-  userType       UserType  @default(User)
+  role       UserType  @default(User)
  
   @@map("users")
 }

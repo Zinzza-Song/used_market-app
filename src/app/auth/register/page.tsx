@@ -40,11 +40,13 @@ const RegisterPage = () => {
 
   return (
     <section className="grid h-[calc(100vh_-_56px)] place-items-center">
+      {/* Register form */}
       <form
         className="flex min-w-[350px] flex-col justify-center gap-4"
         onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-2xl">Register</h1>
 
+        {/* Email Input */}
         <Input
           id="email"
           label="Email"
@@ -54,6 +56,7 @@ const RegisterPage = () => {
           required
         />
 
+        {/* Name Input */}
         <Input
           id="name"
           label="Name"
@@ -63,6 +66,7 @@ const RegisterPage = () => {
           required
         />
 
+        {/* Password Input */}
         <Input
           id="password"
           label="Password"
@@ -73,8 +77,10 @@ const RegisterPage = () => {
           required
         />
 
+        {/* Register Button */}
         <Button label="Register" />
 
+        {/* Link for Login */}
         <div className="text-center">
           <p className="text-gray-400">
             Aleady a member?{' '}

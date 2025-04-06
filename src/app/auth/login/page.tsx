@@ -44,6 +44,7 @@ const LoginPage = () => {
         onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-2xl">Login</h1>
 
+        {/* Emain Input */}
         <Input
           id="email"
           label="Email"
@@ -53,6 +54,7 @@ const LoginPage = () => {
           required
         />
 
+        {/* Password Input */}
         <Input
           id="password"
           label="Password"
@@ -63,8 +65,10 @@ const LoginPage = () => {
           required
         />
 
-        <Button label="Register" />
+        {/* Login Button */}
+        <Button label="Login" />
 
+        {/* Link for Register */}
         <div className="text-center">
           <p className="text-gray-400">
             Not a member?{' '}
