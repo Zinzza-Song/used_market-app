@@ -17,7 +17,6 @@ const ProductUploadPage = () => {
     setValue,
     watch,
     formState: { errors },
-
     reset
   } = useForm<FieldValues>({
     defaultValues: {
