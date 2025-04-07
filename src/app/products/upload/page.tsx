@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Button from '@/components/Button'
 import Container from '@/components/Container'
 import Heading from '@/components/Heading'
+import ImageUpload from '@/components/ImageUpload'
 import Input from '@/components/Input'
 import { useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
@@ -29,7 +31,13 @@ const ProductUploadPage = () => {
     }
   })
 
+  const imageSrc = watch('imageSrc')
+
   const onSubmit: SubmitHandler<FieldValues> = data => {}
+
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value)
+  }
 
   return (
     <Container>
@@ -41,6 +49,12 @@ const ProductUploadPage = () => {
             title="Product Upload"
             subtitle="Upload your product"
           />
+
+          <ImageUpload
+            value={imageSrc}
+            onChange={value => setCustomValue('imageSrc', value)}
+          />
+
           {/* Title Input */}
           <Input
             id="title"
