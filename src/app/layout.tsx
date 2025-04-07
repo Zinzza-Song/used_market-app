@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import getCurrentUser from '@/serverActions/auth'
+import Script from 'next/script'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,10 +26,14 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const currentUser = await getCurrentUser()
+  const kakao_api_key = process.env.NEXT_PUBLIC_KAKAO_API_KEY
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Script
+          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakao_api_key}&libraries=services,clusterer&autoload=false`}
+        />
         <Navbar currentUser={currentUser} />
         {children}
       </body>
