@@ -1,3 +1,4 @@
+// 재사용이 용이하게 따로 컴포넌트로 만들어둠
 import React from 'react'
 
 interface ContainerProps {

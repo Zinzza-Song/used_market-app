@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Button from '@/components/Button'
 import Container from '@/components/Container'
@@ -34,7 +33,7 @@ const ProductUploadPage = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = data => {}
 
-  const setCustomValue = (id: string, value: any) => {
+  const setCustomValue = (id: string, value: unknown) => {
     setValue(id, value)
   }
 

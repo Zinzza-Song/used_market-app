@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use server'
 import { auth, signIn, signOut, update } from '@/auth'
 import { prisma } from '@/libs/prismadb'
