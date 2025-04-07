@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaSkiing } from 'react-icons/fa'
 import { GiBoatFishing, GiIsland, GiWindmill } from 'react-icons/gi'
 import { MdOutlineVilla } from 'react-icons/md'
@@ -54,9 +53,3 @@ export const categories = [
     description: '중고차 카테고리입니다.'
   }
 ]
-
-const Categories = () => {
-  return <div>Categories</div>
-}
-
-export default Categories
