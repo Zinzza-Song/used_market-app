@@ -14,6 +14,7 @@ const KakaoMap = ({
   setCustomValue,
   detailPage = false
 }: KakaoMapProps) => {
+  console.log('지도 생성')
   const handleClick = (mouseEvent: kakao.maps.event.MouseEvent) => {
     if (detailPage) return
 
@@ -31,4 +32,4 @@ const KakaoMap = ({
   )
 }
 
-export default KakaoMap
+export default React.memo(KakaoMap)

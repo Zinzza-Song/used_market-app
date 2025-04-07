@@ -44,4 +44,4 @@ const ImageUpload = ({ onChange, value }: ImageUploadProps) => {
   )
 }
 
-export default ImageUpload
+export default React.memo(ImageUpload)

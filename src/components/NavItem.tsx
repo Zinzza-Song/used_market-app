@@ -57,4 +57,4 @@ const NavItem = ({ mobile, currentUser }: NavItemProps) => {
   )
 }
 
-export default NavItem
+export default React.memo(NavItem)

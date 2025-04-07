@@ -16,4 +16,4 @@ const Heading = ({ title, subtitle, center }: HeadingProps) => {
   )
 }
 
-export default Heading
+export default React.memo(Heading)
