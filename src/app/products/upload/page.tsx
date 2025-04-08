@@ -6,12 +6,15 @@ import Container from '@/components/Container'
 import Heading from '@/components/Heading'
 import ImageUpload from '@/components/ImageUpload'
 import Input from '@/components/Input'
+import axios from 'axios'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 
 const ProductUploadPage = () => {
   const [isLodading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const {
     register,
@@ -41,7 +44,20 @@ const ProductUploadPage = () => {
     ssr: false
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = data => {}
+  const onSubmit: SubmitHandler<FieldValues> = data => {
+    setIsLoading(true)
+    axios
+      .post('/api/products', data)
+      .then(res => {
+        router.push(`/products/${res.data.id}`)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }
 
   const setCustomValue = (id: string, value: unknown) => {
     setValue(id, value)

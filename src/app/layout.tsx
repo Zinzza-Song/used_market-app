@@ -31,11 +31,11 @@ export default async function RootLayout({
     <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar currentUser={currentUser} />
+        {children}
         <Script
           src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakao_api_key}&libraries=services,clusterer&autoload=false`}
         />
-        <Navbar currentUser={currentUser} />
-        {children}
       </body>
     </html>
   )
