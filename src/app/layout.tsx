@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import getCurrentUser from '@/serverActions/getCurrentUser'
 import Script from 'next/script'
+import ToastProvider from '@/components/ToastProvider'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar currentUser={currentUser} />
+        <ToastProvider />
         {children}
         <Script
           src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakao_api_key}&libraries=services,clusterer&autoload=false`}
