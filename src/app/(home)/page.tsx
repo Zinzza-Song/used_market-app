@@ -1,3 +1,8 @@
+import Container from '@/components/Container'
+import EmptyState from '@/components/EmptyState'
+import FloatingButton from '@/components/FloatingButton'
+import ProductCard from '@/components/ProductCard'
+import getCurrentUser from '@/serverActions/getCurrentUser'
 import getProducts, { ProductsParams } from '@/serverActions/getProducts'
 
 interface HomeProps {
@@ -5,9 +10,30 @@ interface HomeProps {
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-  console.log('searchParmas', searchParams)
   const products = await getProducts(searchParams)
-  console.log('상품들', products)
+  const currentUser = await getCurrentUser()
 
-  return <main>누구나 볼 수 있는 페이지</main>
+  return (
+    <Container>
+      {/* Category */}
+
+      {products?.data.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <>
+          <div className="grid-col-1 md:gird-cols-3 grid gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6">
+            {products.data.map(product => (
+              <ProductCard
+                currentUser={currentUser}
+                key={product.id}
+                data={product}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      <FloatingButton href="/products/upload">+</FloatingButton>
+    </Container>
+  )
 }

@@ -1,4 +1,3 @@
-'user server'
 import { auth, signOut, update } from '@/auth'
 
 export const signOutWithForm = async () => {
