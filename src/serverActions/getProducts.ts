@@ -7,9 +7,9 @@ export interface ProductsParams {
   category?: string
 }
 
-export default async function getProducts(params: ProductsParams) {
+export default async function getProducts(params: Promise<ProductsParams>) {
   try {
-    const { latitude, longitude, category } = params
+    const { latitude, longitude, category } = await params
 
     let query: any = {}
 

@@ -5,11 +5,11 @@ import ProductCard from '@/components/ProductCard'
 import getCurrentUser from '@/serverActions/getCurrentUser'
 import getProducts, { ProductsParams } from '@/serverActions/getProducts'
 
-interface HomeProps {
-  searchParams: ProductsParams
-}
-
-export default async function Home({ searchParams }: HomeProps) {
+export default async function Home({
+  searchParams
+}: {
+  searchParams: Promise<ProductsParams>
+}) {
   const products = await getProducts(searchParams)
   const currentUser = await getCurrentUser()
 
