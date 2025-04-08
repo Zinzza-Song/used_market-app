@@ -26,4 +26,4 @@ const CategoryInput = ({
   )
 }
 
-export default CategoryInput
+export default React.memo(CategoryInput)

@@ -16,4 +16,4 @@ const FloatingButton = ({ children, href }: FloatingButtonProps) => {
   )
 }
 
-export default FloatingButton
+export default React.memo(FloatingButton)

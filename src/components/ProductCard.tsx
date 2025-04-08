@@ -46,4 +46,4 @@ const ProductCard = ({ data, currentUser }: ProductCardProps) => {
   )
 }
 
-export default ProductCard
+export default React.memo(ProductCard)

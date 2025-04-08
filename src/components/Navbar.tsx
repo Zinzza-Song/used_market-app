@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import NavItem from './NavItem'
 import { User } from '@prisma/client'
+import React from 'react'
 
 interface NavbarProps {
   currentUser?: User | null
@@ -51,4 +52,4 @@ const Navbar = ({ currentUser }: NavbarProps) => {
   )
 }
 
-export default Navbar
+export default React.memo(Navbar)

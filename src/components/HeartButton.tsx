@@ -22,4 +22,4 @@ const HeartButton = ({ productId, currentUser }: HeartButtonProps) => {
   )
 }
 
-export default HeartButton
+export default React.memo(HeartButton)
