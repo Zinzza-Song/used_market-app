@@ -114,6 +114,6 @@ model Message {
   receiverId     String
   conversationId String
   sender         User         @relation(name: "sender", fields: [senderId], references: [id])
-  receive        User         @relation(name: "receiver", fields: [receiverId], references: [id])
+  receiver       User         @relation(name: "receiver", fields: [receiverId], references: [id])
   Conversation   Conversation @relation(fields: [conversationId], references: [id])
 }
