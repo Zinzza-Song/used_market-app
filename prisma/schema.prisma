@@ -49,19 +49,22 @@ model Session {
 }
 
 model User {
-  id             String    @id @default(cuid())
-  name           String?
-  hashedPassword String?
-  email          String?   @unique
-  emailVerified  DateTime? @map("email_verified")
-  image          String?
-  accounts       Account[]
-  sessions       Session[]
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  role           UserType  @default(User)
-  Product        Product[]
-  favoriteIds    String[]
+  id               String         @id @default(cuid())
+  name             String?
+  hashedPassword   String?
+  email            String?        @unique
+  emailVerified    DateTime?      @map("email_verified")
+  image            String?
+  accounts         Account[]
+  sessions         Session[]
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  role             UserType       @default(User)
+  Product          Product[]
+  favoriteIds      String[]
+  conversations    Conversation[]
+  sendMessages     Message[]      @relation("sender")
+  receiverMessages Message[]      @relation("receiver")
 
   @@map("users")
 }
@@ -89,4 +92,28 @@ model Product {
   updatedAt   DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Conversation {
+  id         String    @id @default(cuid())
+  name       String?
+  senderId   String
+  receiverId String
+  users      User[]
+  messages   Message[]
+  createdAt  DateTime  @default(now())
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  text           String?
+  image          String?
+  senderId       String
+  receiverId     String
+  conversationId String
+  sender         User         @relation(name: "sender", fields: [senderId], references: [id])
+  receive        User         @relation(name: "receiver", fields: [receiverId], references: [id])
+  Conversation   Conversation @relation(fields: [conversationId], references: [id])
 }
