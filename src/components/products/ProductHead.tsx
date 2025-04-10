@@ -38,4 +38,4 @@ const ProductHead = ({
   )
 }
 
-export default ProductHead
+export default React.memo(ProductHead)

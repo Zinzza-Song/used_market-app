@@ -9,11 +9,13 @@ interface ProductInfoProps {
   user: User
   description: string
   createdAt: Date
-  category: {
-    icon: IconType
-    label: string
-    description: string
-  } | undefined
+  category:
+    | {
+        icon: IconType
+        label: string
+        description: string
+      }
+    | undefined
 }
 
 const ProductInfo = ({
@@ -45,4 +47,4 @@ const ProductInfo = ({
   )
 }
 
-export default ProductInfo
+export default React.memo(ProductInfo)

@@ -52,7 +52,7 @@ const ProductClient = ({ product, currentUser }: ProductClientProps) => {
         <div className="mt-10">
           <Button
             label="이 유저와 채팅하기"
-            onClick={() => router.push('chat')}
+            onClick={() => router.replace('/chat')}
           />
         </div>
       </div>
