@@ -24,7 +24,12 @@ const ProductClient = ({ product, currentUser }: ProductClientProps) => {
     <Container>
       <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-col gap-6">
-          <ProductHead />
+          <ProductHead
+            title={product.title}
+            imageSrc={product.imageSrc}
+            id={product.id}
+            currentUser={currentUser}
+          />
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 md:gap-10">
             <ProductInfo />
             <div>
