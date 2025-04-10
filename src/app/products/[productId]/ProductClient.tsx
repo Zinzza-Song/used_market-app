@@ -1,5 +1,6 @@
 'use client'
 import Button from '@/components/Button'
+import { categories } from '@/components/categories/Categories'
 import Container from '@/components/Container'
 import ProductHead from '@/components/products/ProductHead'
 import ProductInfo from '@/components/products/ProductInfo'
@@ -18,6 +19,8 @@ const ProductClient = ({ product, currentUser }: ProductClientProps) => {
     ssr: false
   })
 
+  const category = categories.find(item => item.path === product.category)
+
   const router = useRouter()
 
   return (
@@ -31,7 +34,12 @@ const ProductClient = ({ product, currentUser }: ProductClientProps) => {
             currentUser={currentUser}
           />
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 md:gap-10">
-            <ProductInfo />
+            <ProductInfo
+              user={product.user}
+              category={category}
+              createdAt={product.createdAt}
+              description={product.description}
+            />
             <div>
               <KakaoMap
                 detailPage

@@ -2,7 +2,7 @@ import { User } from '@prisma/client'
 import React from 'react'
 import Heading from '../Heading'
 import Image from 'next/image'
-import HeartButton from './HeartButton'
+import HeartButton from '../HeartButton'
 
 interface ProductHeadProps {
   title: string
