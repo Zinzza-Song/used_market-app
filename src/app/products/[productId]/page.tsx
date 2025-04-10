@@ -11,12 +11,11 @@ export interface Params {
 const ProductPage = async ({ params }: { params: Promise<Params> }) => {
   const product = await getProductById(await params)
   const currentUser = await getCurrentUser()
-  console.log('product', product)
 
   if (!product) return <EmptyState />
 
   return (
-    <ProductClient 
+    <ProductClient
       product={product}
       currentUser={currentUser}
     />
