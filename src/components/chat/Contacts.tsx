@@ -32,7 +32,7 @@ const Contacts = ({
   }
 
   return (
-    <div className="h-[calc(100vh_-_56px) w-full overflow-auto border-[1px]">
+    <div className="h-[calc(100vh_-_56px)] w-full overflow-auto border-[1px]">
       <h1 className="m-4 text-2xl font-semibold">Chat</h1>
       <hr />
 
