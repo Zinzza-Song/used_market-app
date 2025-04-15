@@ -4,7 +4,7 @@ import Contacts from '@/components/chat/Contacts'
 import { TUserWithChat } from '@/types'
 import { User } from '@prisma/client'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useSWR from 'swr'
 
 interface ChatClientProps {
