@@ -22,7 +22,7 @@ const User = ({ user, currentUserId }: UserProps) => {
         <Avatar src={user.image} />
       </div>
 
-      <div>
+      <div className="overflow-hidden">
         <h3>{user.name}</h3>
         {latestMessage && (
           <p className="overflow-hidden text-xs font-medium break-words whitespace-pre-wrap text-gray-600">

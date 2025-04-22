@@ -59,7 +59,6 @@ export async function POST(req: Request) {
   if (conversation) {
     // 이미 둘이 대화를 한 전적이 있으면 메시지만 생성
     try {
-      console.log('대화 저장')
       const message = await prisma.message.create({
         data: {
           text: body.text,

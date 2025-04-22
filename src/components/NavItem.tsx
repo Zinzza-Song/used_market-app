@@ -34,6 +34,15 @@ const NavItem = ({ mobile, currentUser }: NavItemProps) => {
         </Link>
       </li>
 
+      {/* Chat menu */}
+      <li className="border-b-4 py-2 text-center">
+        <Link
+          className="cursor-pointer"
+          href="/chat">
+          Chat
+        </Link>
+      </li>
+
       {currentUser ? (
         /* Sign-Out button */
         <li className="border-b-4 py-2 text-center">
